@@ -43,7 +43,7 @@ const BoxWrapper = styled.div`
   ${({ $span }) => $span && `grid-column: span ${$span};`}
 
   > h4 {
-    color: #8b94a7;
+    color: #9b9b9b;
     margin: 0 0 20px 0;
   }
 

@@ -61,8 +61,8 @@ const Area = () => (
     margin={{ top: 0, right: 0, left: 0, bottom: 0 }}
   >
     <CartesianGrid strokeDasharray="2 2" />
-    <XAxis dataKey="name" stroke="#8b94a7" />
-    <YAxis stroke="#8b94a7" />
+    <XAxis dataKey="name" stroke="#9b9b9b" />
+    <YAxis stroke="#9b9b9b" />
     <BaseArea type="monotone" dataKey="uv" stroke="#0088FE" fill="#0088FE" />
   </AreaChart>
 );
