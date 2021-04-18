@@ -5,7 +5,6 @@ import {
   Pie as BasePie,
   Sector,
   Cell,
-  ResponsiveContainer,
   Legend,
 } from "recharts";
 

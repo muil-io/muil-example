@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Page as BasePage } from "@muil/components";
 import Pie from "./Pie";
+import Area from "./Area";
 
 const Page = styled(BasePage)`
   font-family: Helvetica, Arial, sans-serif;
@@ -39,6 +40,7 @@ const BoxWrapper = styled.div`
   padding: 20px;
   background: #0f254f;
   border-radius: 10px;
+  ${({ $span }) => $span && `grid-column: span ${$span};`}
 
   > h4 {
     color: #8b94a7;
@@ -57,8 +59,8 @@ const Grid = styled.div`
   grid-gap: 24px;
 `;
 
-const Box = ({ title, value, children }) => (
-  <BoxWrapper>
+const Box = ({ title, value, children, span }) => (
+  <BoxWrapper $span={span}>
     <h4>{title}</h4>
     {children ?? <h3>{value.toLocaleString()}</h3>}
   </BoxWrapper>
@@ -82,6 +84,10 @@ const Report = () => (
 
       <Box title="test">
         <Pie />
+      </Box>
+
+      <Box title="Area" span={2}>
+        <Area />
       </Box>
     </Grid>
   </Page>
