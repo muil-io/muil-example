@@ -1,0 +1,23 @@
+{
+  "name": "muil-example",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/muil-io/muil-example.git",
+  "author": "nir@muil.io",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "@muil/components": "0.0.34",
+    "@muil/viewer": "^1.1.4",
+    "babel-loader": "^8.2.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "recharts": "^2.0.9",
+    "styled-components": "^5.2.3"
+  },
+  "dependencies": {},
+  "scripts": {
+    "muil": "muil-viewer",
+    "muil-cli": "muil-cli"
+  }
+}
