@@ -63,7 +63,18 @@ const Small = styled(Text)`
   color: #9a9a9a;
 `;
 
-const Sentry = () => {
+const METADATA = [
+  { label: "New", color: "#DF5120" },
+  { label: "Reopened", color: "#FF7738" },
+  { label: "Existing", color: "#F9C7B9" },
+];
+
+const Sentry = ({ clientName, dates, errorsByProject, errorsByType }) => {
+  const errorsWithColors = errorsByType.map((value, index) => ({
+    value,
+    ...METADATA[index],
+  }));
+
   return (
     <StyleProvider theme={theme}>
       <Container background="#fff">
@@ -75,8 +86,8 @@ const Sentry = () => {
           </Column>
 
           <Column>
-            <Title>Weekly Update for Muil</Title>
-            <Small>April 5th, 2021 – April 12th, 2021</Small>
+            <Title>Weekly Update for {clientName}</Title>
+            <Small>{dates}</Small>
           </Column>
         </Row>
 
@@ -96,36 +107,7 @@ const Sentry = () => {
               height={140}
               legend={false}
               categories={[{ color: "#422C6E" }]}
-              series={[
-                {
-                  label: "Mon",
-                  value: 53,
-                },
-                {
-                  label: "Tue",
-                  value: 13,
-                },
-                {
-                  label: "Wed",
-                  value: 26,
-                },
-                {
-                  label: "Thu",
-                  value: 43,
-                },
-                {
-                  label: "Fri",
-                  value: 43,
-                },
-                {
-                  label: "Sat",
-                  value: 43,
-                },
-                {
-                  label: "Sun",
-                  value: 43,
-                },
-              ]}
+              series={errorsByProject}
             />
           </Column>
         </Row>
@@ -140,24 +122,16 @@ const Sentry = () => {
           <Column large="7">
             <table>
               <tr>
-                <td>
-                  <Box color="#DF5120" />
-                </td>
-                <td>
-                  <Text>New: 10%</Text>
-                </td>
-                <td>
-                  <Box color="#FF7738" />
-                </td>
-                <td>
-                  <Text>Reopened: 20%</Text>
-                </td>
-                <td>
-                  <Box color="#F9C7B9" />
-                </td>
-                <td>
-                  <Text>Existing: 70%</Text>
-                </td>
+                {errorsWithColors.map(({ value, color }) => (
+                  <>
+                    <td>
+                      <Box color={color} />
+                    </td>
+                    <td>
+                      <Text>New: {value}%</Text>
+                    </td>
+                  </>
+                ))}
               </tr>
             </table>
           </Column>
@@ -165,13 +139,7 @@ const Sentry = () => {
 
         <Row>
           <Column>
-            <LineBar
-              percents={[
-                { value: 10, color: "#DF5120" },
-                { value: 20, color: "#FF7738" },
-                { value: 70, color: "#F9C7B9" },
-              ]}
-            />
+            <LineBar percents={errorsWithColors} />
           </Column>
         </Row>
 
@@ -210,5 +178,20 @@ const Sentry = () => {
 };
 
 Sentry.displayName = "Sentry Report";
+
+Sentry.dynamicProps = {
+  clientName: "Muil",
+  dates: "April 5th, 2021 – April 12th, 2021",
+  errorsByProject: [
+    { label: "Mon", value: 53 },
+    { label: "Tue", value: 13 },
+    { label: "Wed", value: 34 },
+    { label: "Thu", value: 23 },
+    { label: "Fri", value: 76 },
+    { label: "Sat", value: 97 },
+    { label: "Sun", value: 23 },
+  ],
+  errorsByType: [10, 20, 70],
+};
 
 export default Sentry;
