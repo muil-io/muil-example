@@ -138,9 +138,7 @@ const Sentry = ({ clientName, dates, errorsByProject, errorsByType }) => {
         </Row>
 
         <Row>
-          <Column>
-            <LineBar percents={errorsWithColors} />
-          </Column>
+          <LineBar percents={errorsWithColors} />
         </Row>
 
         <Spacer size="40" />
@@ -152,13 +150,11 @@ const Sentry = ({ clientName, dates, errorsByProject, errorsByType }) => {
         </Row>
 
         <Row>
-          <Column>
-            <Calendar
-              monthsBefore={1}
-              monthsAfter={1}
-              dayClassName={({ day }) => `score${day % 3}`}
-            />
-          </Column>
+          <Calendar
+            monthsBefore={1}
+            monthsAfter={1}
+            dayClassName={({ day }) => `score${day % 3}`}
+          />
         </Row>
 
         <Spacer size="20" />
