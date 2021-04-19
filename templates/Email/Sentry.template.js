@@ -177,7 +177,7 @@ const Sentry = ({ clientName, dates, errorsByProject, errorsByType }) => {
   );
 };
 
-Sentry.displayName = "Sentry Report";
+Sentry.displayName = "Sentry Report Example";
 
 Sentry.dynamicProps = {
   clientName: "Muil",
