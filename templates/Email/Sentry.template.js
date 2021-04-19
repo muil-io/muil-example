@@ -9,7 +9,7 @@ import {
   Text,
   Spacer,
   BarChart as BaseBarChart,
-  LineBar,
+  LineBar as BaseLineBar,
   Calendar as BaseCalendar,
 } from "@muil/components";
 import sentryLogo from "./sentryLogo.png";
@@ -43,7 +43,15 @@ const Box = styled.div`
   margin-top: 5px;
 `;
 
+const LineBar = styled(BaseLineBar)`
+  width: 200% !important;
+`;
+
 const Calendar = styled(BaseCalendar)`
+  > table {
+    width: 31% !important;
+  }
+
   .score0 {
     background: #f9600c;
   }
@@ -138,7 +146,9 @@ const Sentry = ({ clientName, dates, errorsByProject, errorsByType }) => {
         </Row>
 
         <Row>
-          <LineBar percents={errorsWithColors} />
+          <Column>
+            <LineBar percents={errorsWithColors} />
+          </Column>
         </Row>
 
         <Spacer size="40" />
@@ -150,11 +160,13 @@ const Sentry = ({ clientName, dates, errorsByProject, errorsByType }) => {
         </Row>
 
         <Row>
-          <Calendar
-            monthsBefore={1}
-            monthsAfter={1}
-            dayClassName={({ day }) => `score${day % 3}`}
-          />
+          <Column>
+            <Calendar
+              monthsBefore={1}
+              monthsAfter={1}
+              dayClassName={({ day }) => `score${day % 3}`}
+            />
+          </Column>
         </Row>
 
         <Spacer size="20" />
