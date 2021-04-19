@@ -209,6 +209,6 @@ const Sentry = () => {
   );
 };
 
-Sentry.displayName = "Sentry Report";
+Sentry.displayName = "Sentry Report Example";
 
 export default Sentry;

@@ -15,7 +15,6 @@
     "recharts": "^2.0.9",
     "styled-components": "^5.2.3"
   },
-  "dependencies": {},
   "scripts": {
     "muil": "muil-viewer",
     "muil-cli": "muil-cli"
