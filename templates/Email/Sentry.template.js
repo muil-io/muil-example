@@ -8,8 +8,8 @@ import {
   Header6,
   Text,
   Spacer,
-  BarChart as BaseBarChart,
-  LineBar as BaseLineBar,
+  BarChart,
+  LineBar,
   Calendar as BaseCalendar,
 } from "@muil/components";
 import sentryLogo from "./sentryLogo.png";
@@ -28,12 +28,6 @@ const Line = styled(Spacer).attrs(() => ({ size: 1 }))`
   border-bottom: 1px solid #dee7eb;
 `;
 
-const BarChart = styled(BaseBarChart)`
-  td.column {
-    padding-left: 0;
-  }
-`;
-
 const Box = styled.div`
   width: 10px;
   height: 10px;
@@ -43,15 +37,7 @@ const Box = styled.div`
   margin-top: 5px;
 `;
 
-const LineBar = styled(BaseLineBar)`
-  width: 200% !important;
-`;
-
 const Calendar = styled(BaseCalendar)`
-  > table {
-    width: 31% !important;
-  }
-
   .score0 {
     background: #f9600c;
   }

@@ -7,7 +7,7 @@
   "license": "MIT",
   "private": false,
   "devDependencies": {
-    "@muil/components": "0.0.34",
+    "@muil/components": "^0.0.35",
     "@muil/viewer": "^1.1.4",
     "babel-loader": "^8.2.2",
     "react": "^17.0.2",
